@@ -1,35 +1,28 @@
+import sys
+input = sys.stdin.readline
+sys.setrecursionlimit(10 ** 9)
+ 
 V = int(input())
-tree = [[] for _ in range(V+1)]
-
+graph = [[] for _ in range(V + 1)]
+ 
 for _ in range(V):
-    line = list(map(int, input().split()))
-    cnt_node = line[0]
-    idx = 1
-    while line[idx] != -1:
-        adj_node, adj_cost = line[idx], line[idx+1]
-        tree[cnt_node].append((adj_node, adj_cost))
-        idx += 2
-
+    info = list(map(int, input().split()))
+    for n in range(1, len(info) - 2, 2):
+        graph[info[0]].append((info[n], info[n + 1]))
+ 
+def dfs(start, distance):
+    for next, next_d in graph[start]:
+        if visited[next] == -1:
+            visited[next] = distance + next_d
+            dfs(next, distance + next_d)
+ 
 visited = [-1] * (V + 1)
 visited[1] = 0
-
-def DFS(node, dist):
-    for v, d in tree[node]:
-        cal_dist = dist + d
-        if visited[v] == -1:
-            visited[v] = cal_dist
-            DFS(v, cal_dist)
-    return
-            
-DFS(1, 0)
-tmp = [0, 0]
-for i in range(1, len(visited)):
-    if visited[i] > tmp[1]:
-        tmp[1] = visited[i]
-        tmp[0] = i
-
+dfs(1, 0)
+ 
+last_Node = visited.index(max(visited))
 visited = [-1] * (V + 1)
-visited[tmp[0]] = 0
-DFS(tmp[0], 0)
-
+visited[last_Node] = 0
+dfs(last_Node, 0)
+ 
 print(max(visited))
