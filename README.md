@@ -2,7 +2,7 @@
 
 > PS 
 
-[👉 PS 정리 노션 바로가기](https://cypress-orangutan-125.notion.sitePS-36d89525f86280c78fd0cf19626d70c8?source=copy_link)
+[👉 PS 정리 노션 바로가기](https://cypress-orangutan-125.notion.site/PS-36d89525f86280c78fd0cf19626d70c8?source=copy_link)
 
 ---
 
