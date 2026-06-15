@@ -26,9 +26,9 @@ PS
 
 ## 이용 사이트
 
-[👉 백준](https://www.acmicpc.net/)
-[👉 프로그래머스](https://programmers.co.kr/)
+[백준](https://www.acmicpc.net/)
+[프로그래머스](https://programmers.co.kr/)
 
 ## 학습 정리
 
-[👉 PS 정리 노션](https://cypress-orangutan-125.notion.site/PS-36d89525f86280c78fd0cf19626d70c8?source=copy_link)
+[PS 정리 노션](https://cypress-orangutan-125.notion.site/PS-36d89525f86280c78fd0cf19626d70c8?source=copy_link)
