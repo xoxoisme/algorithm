@@ -28,3 +28,24 @@ def solution(N, road, K):
     distances = dijkstra(graph, 1)
     
     return len([d for d in distances[1:] if d <= K])
+
+# N개 마을
+# 양방향 통행
+# K 이하만 카운트
+# ---
+# 그래프 생성
+# 1번이 기준
+# distances 처음빼고 다 최대값 - float('inf')
+# deque - 우선순위 큐
+
+# pq 반복
+#     - 그래프에서 거리, 도착노드 pop
+#     - 이미 최단 거리면 건너뛰기(메모리 관리)
+#     그래프에서 현재 갈 수 있는 최단 거리의 노드 찾아 반복
+#         - 현재까지 온 거리+각 노드의 거리
+#         - distances에 있는 거리보다 작으면
+# 	        - distances에 넣기
+# 	        - 해당 노드 heap 넣기(어떻게든 넣어도 pop하면 최소값 부터 나옴)(거리, 노드)
+	       
+# (grpah, 1) 시작
+# K 이하 노드만 카운트
