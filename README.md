@@ -10,14 +10,6 @@ PS
 
 ---
 
-<p>
-  <a href="https://solved.ac/kxoxo333/">
-    <img src="http://mazassumnida.wtf/api/v2/generate_badge?boj=kxoxo333" alt="Solved.ac Profile"/>
-  </a>
-</p>
-
----
-
 ## 언어
 
 [![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
@@ -55,3 +47,4 @@ def solution(triangle):
 ```
 
 - 코드를 작성하기 전, 항상 자연어로 코드 형태로 작성한다.
+- 다만, 짧은 코드는 제외한다.
