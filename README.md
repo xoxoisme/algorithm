@@ -19,31 +19,54 @@ PS
 ## 이용 사이트
 
 [백준](https://www.acmicpc.net/)
+<br>
 [프로그래머스](https://programmers.co.kr/)
-
-## 학습 정리
-
-[PS 정리 노션](https://cypress-orangutan-125.notion.site/PS-36d89525f86280c78fd0cf19626d70c8?source=copy_link)
 
 ## 슈도 코드
 
 ```python
 
-def solution(triangle):
-    for i in range(len(triangle)-2, -1, -1):
-        for j in range(len(triangle[i])):
-            triangle[i][j] += max(triangle[i+1][j], triangle[i+1][j+1])
-    return triangle[0][0]
+from collections import deque
 
-# 모든 값을 비교해야하기에 bottom-up 방식
-# ---
-# 트라이앵글을 table로 활용(table 말고 그냥 triangle 자체로 해도 될 거 같아서 바꿈)
-
-# 3행부터 계산해야하기에 range(len(triangle)-2, -1, -1) 반복 - i
-#     해당 3행 쭉 돌 때까지 반복 - j
-#         table[i][j] += (table[i+1][j], table[i+1][j+1]) 중에서 더 큰 값
+def solution(n, edge):
     
-# table[0][0]이 최대값
+    graph = [[] for _ in range(n+1)]
+    for a, b in edge:
+        graph[a].append(b)
+        graph[b].append(a)
+        
+    distances = [-1] * (n+1)
+    distances[1] = 0
+    
+    queue = deque([1])
+    while queue:
+        cur = queue.popleft()
+        for next in graph[cur]:
+            if distances[next] == -1:
+                distances[next] = distances[cur] + 1
+                queue.append(next)
+                
+    max_dist = max(distances)
+    return distances.count(max_dist)
+
+# 최단 거리
+# 모든 노드 가중치가 같음(bfs 가능)
+# ---
+
+# 그래프 생성
+# dsts 배열 -1로 생성
+# dsts 시작(1)은 0
+
+# 큐(1) 생성
+# 빌 때까지 반복
+#     - popleft()
+#     그래프에서 다음꺼 하나씩 꺼내서 반복
+#         다음 꺼가 -1이라 방문 안했다면
+#             - dsts[다음]에다가 dsts[현재]+1
+#             - 큐에 넣기
+        
+# dsts에서 최대값 찾기
+# dsts에서 최대값 카운트
 ```
 
 - 코드를 작성하기 전, 항상 자연어로 코드 형태로 작성한다.
