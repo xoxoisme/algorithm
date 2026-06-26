@@ -6,8 +6,6 @@ def solution(answers):
         if answers[i] == people[0][i%len(people[0])]: cnt[0] += 1
         if answers[i] == people[1][i%len(people[1])]: cnt[1] += 1
         if answers[i] == people[2][i%len(people[2])]: cnt[2] += 1
-    cnt = sorted(enumerate(cnt), key=lambda t: -t[1])
-    max_cnt = cnt[0][1]
-    for i in range(len(cnt)):
-        if cnt[i][1] == max_cnt: res.append(cnt[i][0]+1)
+    for i, s in enumerate(cnt):
+        if s == max(cnt): res.append(i+1)
     return res
