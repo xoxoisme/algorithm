@@ -6,5 +6,4 @@ def solution(s):
         if stack[-2:] == ['(', ')']:
             stack.pop()
             stack.pop()
-    if stack == []: return True
-    return False
+    return len(stack) == 0
